@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shorcut icon" href="img/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Для поиска в сети-->
+    <meta name="description" content="Рады видеть Вас на нашем сайте.">
+    <meta property="og:title" content="Производство искуственных елок и украшений">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://leska-ver.github.io/elka-Max/"><!-- здесь ссылка на сайт -->
+    <meta property="og:image" content="img/ogImage.jpg">
+    <meta name="keywords" content="ёлки, нг, доставка, ёлочки, daycare, подарки, купи">
+    <!-- //Для поиска в сети-->
+    <!-- для modal-order -->
+    <script defer="defer" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <!-- <script defer="defer" src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
+          <script defer="defer" src="./vendor/inputmask.min.js"></script> -->
+    <!--Скроллбар для modal-order-->
+    <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css">
+    <!--Скроллбар для modal-order-->
+    <script defer="defer" src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
+    <!-- Яндекс карта -->
+    <script defer="defer" src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU" type="text/javascript"></script>
+    <title>Елочка, гори!</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+      // для Базы данных timeweb.ru
+    const formBaza = document.querySelector('.form');
+      if (formBaza) { // Обёртка if. Спасение Gulp-а от null в браузере
+        $(function () {
+          $('.form-button').on('click', function () {
+            let data = {
+              'name': $('[name="name"]').val(),
+              'tel': $('[name="tel"]').val(),
+              'email': $('[name="email"]').val(),
+              'message': $('[name="message"]').val()
+            };
+            $.post('mail.php', data, function (response) {
+              if (response == 1) {
+                $('[name="name"]').val('');
+                $('[name="tel"]').val('');
+                $('[name="email"]').val('');
+                $('[name="message"]').val('');
+              }
+            })
+
+            return false;
+          });
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1 class="visually-hidden">Я для семантики</h1>
+      <header class="header">
+        <div class="header__container header__container_margin"></div>
+      </header>
+      <main>
+        <section class="reviews">
+          <div class="reviews__container">
+            <h2 class="reviews__h2 h2">
+              Отзывы о нас
+            </h2>
+            <ul class="reviews__list">
+              <li class="reviews__item sample-modalJs">
+                <article class="reviews__article">
+                  <h3 class="reviews__h3 sample-modalH3">Отзыв №1</h3>   
+                  <!-- reviews__orld чтобы в модалку перешли стили grid --> 
+                  <div class="reviews__orld">           
+                    <div class="reviews__img">
+                      <img src="img/adam.png" alt="фото автора отзыва">
+                    </div>
+                    <div class="reviews__info">
+                      <ul class="reviews__sublist">
+                        <li class="reviews__subitem">Имя:.............</li>
+                        <li class="reviews__subitem">Заказывал:.............</li>
+                        <li class="reviews__subitem">Сумма заказа:..........</li>
+                      </ul>
+                      <p class="reviews__desc desc">
+                        Lorem Ipsum это текст-&laquo;рыба&raquo;, часто используемый в&nbsp;печати
+                        и&nbsp;вэб-дизайне. Lorem Ipsum является стандартной &laquo;рыбой&raquo; для текстов
+                        на&nbsp;латинице с&nbsp;начала XVI&nbsp;века. В&nbsp;то&nbsp;время некий безымянный
+                        печатник создал большую коллекцию размеров и&nbsp;форм шрифтов, используя Lorem Ipsum для
+                        распечатки&nbsp; образцов
+                      </p>
+                    </div> 
+                  </div>
+                  <button class="reviews__button btn btn_green  sample-btnJs" data-modal="order" aria-label="Нажмите чтобы Заказать этот же набор">
+                    Заказать этот же набор
+                  </button>
+                </article>
+              </li>
+              <li class="reviews__item sample-modalJs">
+                <article class="reviews__article">
+                  <h3 class="reviews__h3 sample-modalH3">Отзыв №2</h3>   
+                  <!-- reviews__orld чтобы в модалку перешли стили grid --> 
+                  <div class="reviews__orld">           
+                    <div class="reviews__img">
+                      <img src="img/adam.png" alt="фото автора отзыва">
+                    </div>
+                    <div class="reviews__info">
+                      <ul class="reviews__sublist">
+                        <li class="reviews__subitem">Имя:.............</li>
+                        <li class="reviews__subitem">Заказывал:.............</li>
+                        <li class="reviews__subitem">Сумма заказа:..........</li>
+                      </ul>
+                      <p class="reviews__desc desc">
+                        Lorem Ipsum это текст-&laquo;рыба&raquo;, часто используемый в&nbsp;печати
+                        и&nbsp;вэб-дизайне. Lorem Ipsum является стандартной &laquo;рыбой&raquo; для текстов
+                        на&nbsp;латинице с&nbsp;начала XVI&nbsp;века. В&nbsp;то&nbsp;время некий безымянный
+                        печатник создал большую коллекцию размеров и&nbsp;форм шрифтов, используя Lorem Ipsum для
+                        распечатки&nbsp; образцов
+                      </p>
+                    </div> 
+                  </div>
+                  <button class="reviews__button btn btn_green  sample-btnJs" data-modal="order" aria-label="Нажмите чтобы Заказать этот же набор">
+                    Заказать этот же набор
+                  </button>
+                </article>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </main>
+      <footer class="footer">
+        <div class="footer__container"></div>
+      </footer>
+      <div class="modals">
+        <div class="modals__overlay"></div>
+        <!-- modal-Модальное окно СПАСИБО-шаблон -->
+        <div class="modals__thanks modals__thanks_js">
+          <div class="modals__sps modals__sps_js">
+            <div class="modals__before modal-before">
+              <button class="modals__close closeX closeX_js" title="Закрыть">
+                &#10006;
+              </button>
+              <h2 class="modals__h2 modal-text modal-h2 h2">
+                Товар будет отправлен на указанную Вами почту.
+              </h2>
+            </div>
+          </div>
+        </div>
+        <!-- // modal-Модальное окно СПАСИБО-шаблон -->
+        <div class="modal modal-order" data-modal-open="order" data-simplebar>
+          <button class="modal__close-mobile btn-reset for-mobile" aria-label="Закрыть окно" data-swipe-treshold="20"
+            data-swipe-timeout="500" data-swipe-ignore="false"></button>
+          <button class="modal__close closeX">x</button>
+          <h2 class="modal__h2 modal-text h2">Бронирование заказа</h2>
+          <div class="tariff"></div>
+          <form class="modal__form modal__form_js" action="mail.php" enctype="multipart/form-data" method="POST"
+            aria-label="Здесь Вы можете заказать товар">
+            <input type="hidden" name="admin_email[]" value="darki@yandex.ru"><!--darki@yandex.ru-->
+            <input type="hidden" name="admin_email[]" value="darki@mail.ru">
+            <input type="hidden" name="form_subject" value="Сообщение из сайта Ёлочка, заказ">
+            <div class="modal__block">
+              <!--data здесь он обрабатывает плагин валидатор кода-->
+              <label class="modal__label" for="nameZakaz">
+                <input class="modal__input" type="text" name="name" placeholder="Фамилия и Имя" data-validate-field="name"
+                  id="nameZakaz" required="" aria-label="Введите ваше Фамилию и Имя" maxlength="20">
+              </label>
+              <label class="modal__label" for="telZakaz">
+                <input class="modal__input" type="tel" name="tel" placeholder="Ваш телефон" data-validate-field="tel"
+                  data-validate-rules="phone" id="telZakaz" aria-label="Введите ваш телефон">
+              </label>
+              <label class="modal__label" for="emailZakaz">
+                <input class="modal__input" type="email" name="email" placeholder="Email" data-validate-field="email"
+                  id="emailZakaz" aria-label="Введите вашу почту" maxlength="35">
+              </label>
+              <label class="modal__label" for="messageZakaz">
+                <span class="modal__label-descr"></span>
+                <textarea class="modal__textarea" name="message" id="messageZakaz" placeholder="Напишите через запятую: адрес места жительства, название товара, размер, количество." data-validate-field="text"></textarea>
+              </label>
+            </div>
+            <div class="modal__form-btn">
+              <button class="modal__button btn">Заказать</button>
+              <div class="modal__policy">
+                Нажимая на кнопку, вы соглашаетесь с нашей
+                <a href="https://rocket-telecom.ru/wp-content/uploads/2023/06/politika-v-otnoshenii-obrabotki-personalnyh-dannyh-rtcz.pdf?ysclid=lnygqc4a8t42508700"
+                  target="_blank">политикой обработки персональных данных</a>
+                <!-- href="land.pdf" -->
+              </div>
+            </div>
+          </form>
+          <div class="modal__ord">
+            <!-- Инфо о Ёлке в модалке -->
+          </div>
+          <div class="modal__bottom">
+            <div class="">
+              <!-- <img src="/img/manager.png" aria-hidden="true" alt="Менеджер"> -->
+            </div>
+            <div class="modal__text">
+              Остались вопросы? Свяжитесь со мной любым удобным способом:
+              <a href="tel:88002004017">8 (800) 200-40-17</a> или <a href="mailto:info@.mail">info@.mail</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- wrapper -->
+
+
+
+
+
+
+
+
+
+
+    <!--Аккордеон тоже самое и для телефона-->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+      integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <!--минифицированный библиотека. для телефона-->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+      integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <!--Маска формы input-ов-->
+    <script src="js/inputmask.min.js"></script>
+    <!--Валидатор input-ов-->
+    <script src="js/just-validate.js"></script>
+    
+
+
+
+    <script src="js/buy.js"></script>
+    <script src="js/modal-shablone.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/elka.js"></script>
+  </body>
+</html>
